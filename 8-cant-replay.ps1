@@ -20,10 +20,12 @@ $params = @{
     Sender = "reports@ad.local"
     Subject = "Deadlock Captured"
     Body = "Caught a deadlock"
+    Event = "sql_batch_completed"
+    Filter = "batch_text = 'select @@servername'"
 }
 
 $emailresponse = New-DbaXESmartEmail @params
-Start-DbaXESmartTarget -SqlInstance localhost\sql2017 -Session 'Pretend This is a Deadlock Capture' -Responder $emailresponse -NotAsJob
+Start-DbaXESmartTarget -SqlInstance localhost\sql2017 -Session 'Pretend This is a Deadlock Capture' -Responder $emailresponse
 
 # You can handle them by using built-in commands as well
 Get-DbaXESmartTarget | Stop-DbaXESmartTarget
