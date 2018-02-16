@@ -6,6 +6,8 @@ Start-DbaXESession -SqlInstance localhost\sql2017 -Session 'Queries and Resource
 
 # Answer: Use dbachecks
 Set-DbcConfig -Name policy.xevent.requiredstoppedsession -Value 'Queries and Resources'
+
+# Imagine a scheduled run
 Invoke-DbcCheck -SqlInstance localhost\sql2017 -Check XESessionStopped
 
 # Or as mentioned before, Sessions can be easily stopped en masse
