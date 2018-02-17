@@ -36,7 +36,7 @@ Start-Process -FilePath powershell -ArgumentList C:\github\xevents-demo\deadlock
 Get-DbaXESmartTarget
 
 # Stop will cancel
-Stop-DbaXESession -SqlInstance localhost\sql2017 -Session 'Deadlock Graphs'
+Stop-DbaXESession -SqlInstance localhost\sql2017 -Session 'Deadlock Graphs','Queries and Resources'
 
 # You can handle them by using built-in commands as well
 Get-DbaXESmartTarget

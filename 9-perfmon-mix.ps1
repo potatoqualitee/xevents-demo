@@ -12,7 +12,7 @@ Invoke-Item C:\temp\deadlock
 
 # Then, we ensured you can write to a local database so you can use Power BI with that data source
 Get-DbaXESession -SqlInstance localhost\sql2017 -Session 'Queries and Resources' | Read-DbaXEFile |
-Write-DbaDataTable -SqlInstance localhost\sql2016 -Table tempdb.dbo.profiler -AutoCreateTable
+Write-DbaDataTable -SqlInstance localhost\sql2016 -Table tempdb.dbo.queriesandresources -AutoCreateTable
 
 
 # Perfmon

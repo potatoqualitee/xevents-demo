@@ -61,3 +61,5 @@ $dbs | Invoke-Parallel -ImportVariables -ImportModules -ScriptBlock {
         Write-Output "Potential deadlock detected"
     }
 }
+
+Read-Host -Prompt "Press enter to close"
