@@ -1,9 +1,8 @@
 ﻿# Complaint: Ability to import PerfMon data and look at Trace and PerfMon counter data at the same time
 
-# First we enabled exporting to CSV from command line
+# First we enabled exporting to CSV from command line - 21,000 
 Get-ChildItem -Path C:\temp\sample.xel | Export-DbaXECsv -Path c:\temp\sample.csv
-Get-ChildItem -Path C:\temp\profiler.xel | Export-DbaXECsv -Path c:\temp\profiler.csv
-Invoke-Item c:\temp\profiler.csv
+Invoke-Item c:\temp\sample.csv
 
 # Or convert to CSV right from the XESession
 Get-DbaXESession -SqlInstance localhost\sql2017 | Where TargetFile | Export-DbaXECsv -Path C:\temp\new

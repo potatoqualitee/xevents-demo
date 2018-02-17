@@ -1,6 +1,6 @@
 ﻿# Complaint: Can't replay events from Session
 # Answer: You can now read and execute from a xel file
-Read-DbaXEFile -Path C:\temp\sample-session.xel | Invoke-DbaXeReplay -SqlInstance localhost\sql2017 -Database planning
+Read-DbaXEFile -Path C:\temp\sample2.xel | Invoke-DbaXeReplay -SqlInstance localhost\sql2017 -Database planning
 
 # Answer: Or, if you want an online replay, check out our preview of SmartReplay
 # Ensure it's started
