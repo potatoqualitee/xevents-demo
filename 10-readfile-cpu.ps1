@@ -1,7 +1,8 @@
 ﻿# Complaint: Reading using xe_file_target_read_file taxes the SQL Server CPU
 # Answer: Now you can read files from any workstation or server
-Read-DbaXEFile -Path C:\temp\deadocks.xel
+Get-ChildItem small-sample.xel | Read-DbaXEFile
 Get-DbaXESession -SqlInstance localhost\sql2017 -Session 'Queries and Resources' | Read-DbaXEFile
+
 
 # Or, again, you can read locally and export to remote table
 Get-DbaXESession -SqlInstance localhost\sql2017 -Session 'Queries and Resources' | Read-DbaXEFile |
