@@ -1,5 +1,5 @@
 Write-Host -Foreground Green "Starting up deadlock scripts"
-Write-Host -Foreground Green "Gimme about 5 seconds"
+Write-Host -Foreground Green "Gimme about 5 seconds to load up some parallel processes"
 Import-Module C:\temp\new\dbatools\dbatools.psm1
 $modulepath = Get-Item -Path (Get-Module dbatools).Path
 
