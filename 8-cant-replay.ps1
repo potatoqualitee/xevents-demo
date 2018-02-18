@@ -1,4 +1,5 @@
-﻿# Complaint: Can't replay events from Session
+﻿break
+# Complaint: Can't replay events from Session
 # Answer: You can now read and execute from a xel file
 Get-ChildItem small-sample.xel | Read-DbaXEFile | Invoke-DbaXeReplay -SqlInstance localhost\sql2017 -Database planning
 
