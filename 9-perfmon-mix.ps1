@@ -1,4 +1,5 @@
-﻿# Complaint: Ability to import PerfMon data and look at Trace and PerfMon counter data at the same time
+﻿break
+# Complaint: Ability to import PerfMon data and look at Trace and PerfMon counter data at the same time
 
 # First we enabled exporting to CSV from command line
 Get-ChildItem -Path C:\github\xevents-demo\sample.xel | Export-DbaXECsv -Path c:\temp\sample.csv

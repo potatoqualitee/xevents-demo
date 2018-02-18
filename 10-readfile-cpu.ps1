@@ -1,4 +1,5 @@
-﻿# Complaint: Reading using xe_file_target_read_file taxes the SQL Server CPU
+﻿break
+# Complaint: Reading using xe_file_target_read_file taxes the SQL Server CPU
 # Answer: Now you can read files from any workstation or server
 Get-ChildItem small-sample.xel | Read-DbaXEFile
 Get-DbaXESession -SqlInstance localhost\sql2017 -Session 'Deadlock Graphs' | Read-DbaXEFile
