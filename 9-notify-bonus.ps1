@@ -8,6 +8,7 @@ $params = @{
     Sender = "reports@ad.local"
     Subject = "Deadlock Captured"
     Body = "Caught a deadlock"
+    Filter = "database_name = 'tempdb'"
     Event = "database_xml_deadlock_report"
 }
 

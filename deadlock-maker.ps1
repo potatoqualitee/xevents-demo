@@ -49,7 +49,7 @@ SET column1 = 0
 ROLLBACK
 "
 $dbs = @()
- 1..4 | ForEach-Object {
+ 1..3 | ForEach-Object {
      $dbs += Get-DbaDatabase -SqlInstance localhost\sql2017 -Database tempdb
  }
 
