@@ -2,10 +2,10 @@
 # Answer: PowerShell can help in 3 ways
 
 # Answer: Auto create a disappearing Agent job
-Start-DbaXESession -SqlInstance localhost\sql2017 -Session 'Queries and Resources' -StopAt (Get-Date).AddMinutes(30)
+Start-DbaXESession -SqlInstance localhost\sql2017 -Session 'Long Running Queries' -StopAt (Get-Date).AddMinutes(30)
 
 # Answer: Use dbachecks
-Set-DbcConfig -Name policy.xevent.requiredstoppedsession -Value 'Queries and Resources'
+Set-DbcConfig -Name policy.xevent.requiredstoppedsession -Value 'Long Running Queries'
 
 # Imagine a scheduled run
 Invoke-DbcCheck -SqlInstance localhost\sql2017 -Check XESessionStopped
