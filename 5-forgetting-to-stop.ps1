@@ -11,5 +11,5 @@ Set-DbcConfig -Name policy.xevent.requiredstoppedsession -Value 'Long Running Qu
 # Imagine a scheduled run
 Invoke-DbcCheck -SqlInstance localhost\sql2017 -Check XESessionStopped
 
-# Or as mentioned before, Sessions can be easily stopped en masse
+# Sessions can be easily stopped (or started) en masse
 $servers | Get-DbaXESession | Out-GridView -PassThru | Stop-DbaXESession
