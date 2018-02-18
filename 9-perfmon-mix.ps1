@@ -17,7 +17,6 @@ Write-DbaDataTable -SqlInstance localhost\sql2016 -Table tempdb.dbo.queriesandre
 
 
 # Perfmon
-Get-DbaPfDataCollectorSetTemplate | Out-GridView
 Get-DbaPfDataCollectorSetTemplate | Out-GridView -PassThru | Import-DbaPfDataCollectorSetTemplate | Start-DbaPfDataCollectorSet
 
 
