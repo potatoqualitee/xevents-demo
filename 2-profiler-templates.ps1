@@ -5,5 +5,6 @@ Get-DbaTrace -SqlInstance localhost\sql2017 -Id 1 | ConvertTo-DbaXESession -Name
 
 # Go look in SSMS! :D
 
-# Remove that bad boy
+# Stop or remove those bad boys
+Get-DbaTrace -SqlInstance localhost\sql2017 -Id 2 | Stop-DbaTrace
 Get-DbaTrace -SqlInstance localhost, localhost\sql2016, localhost\sql2017 | Out-GridView -PassThru | Remove-DbaTrace
