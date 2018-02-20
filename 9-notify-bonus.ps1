@@ -8,7 +8,9 @@ $params = @{
     Sender = "reports@ad.local"
     Subject = "Deadlock Captured"
     Body = "Caught a deadlock"
-    Event = "database_xml_deadlock_report"
+    Event = "xml_deadlock_report"
+    Attachment = "xml_report"
+    AttachmentFileName = "report.xdl"
 }
 
 $emailresponse = New-DbaXESmartEmail @params
