@@ -8,5 +8,5 @@ WAITFOR DELAY '00:00:01';
 
 while($true) {
     Write-Host $sql
-    sqlcmd -S $target_instance_name -Q $sql -U replayuser -P replayuser -d ReplayDB
+    sqlcmd -S $target_instance_name -Q $sql -U replayuser -P replaypassword -d ReplayDB
 }
