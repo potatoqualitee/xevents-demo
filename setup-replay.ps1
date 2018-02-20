@@ -1,5 +1,3 @@
-Import-Module C:\temp\new\dbatools\dbatools.psm1
-
 $source_instance_name = "localhost\sql2016"
 $target_instance_name = "localhost\sql2017"
 
@@ -19,11 +17,11 @@ CREATE TABLE testNumbers (
 
 "
 
-$db = Get-DbaDatabase -SqlInstance $source_instance_name,$target_instance_name -Database master
-$db.Query($sql_createDB)
+sqlcmd -S $source_instance_name -Q $sql_createDB -d master
+sqlcmd -S $target_instance_name -Q $sql_createDB -d master
 
-$db = Get-DbaDatabase -SqlInstance $source_instance_name,$target_instance_name -Database ReplayDB
-$db.Query($sql_createTable)
+sqlcmd -S $source_instance_name -Q $sql_createTable -d ReplayDB
+sqlcmd -S $target_instance_name -Q $sql_createTable -d ReplayDB
 
 $sql_login = "
 
@@ -67,12 +65,11 @@ CREATE USER replayuser FOR LOGIN replayuser
 EXEC sp_addrolemember 'db_owner', 'replayuser'
 "
 
-$db = Get-DbaDatabase -SqlInstance $source_instance_name,$target_instance_name -Database master
-$db.Query($sql_login)
+sqlcmd -S $source_instance_name -Q $sql_login -d master
+sqlcmd -S $target_instance_name -Q $sql_login -d master
 
-$db = Get-DbaDatabase -SqlInstance $source_instance_name,$target_instance_name -Database ReplayDB
-$db.Query($sql_user)
-
+sqlcmd -S $source_instance_name -Q $sql_user -d ReplayDB
+sqlcmd -S $target_instance_name -Q $sql_user -d ReplayDB
 
 $sql_session = "
 IF EXISTS (SELECT * FROM sys.dm_xe_sessions WHERE name = 'WorkloadReplay')
@@ -150,6 +147,10 @@ WITH(
 
 "
 
+sqlcmd -S $source_instance_name -Q $sql_session -d master
+sqlcmd -S $target_instance_name -Q $sql_session -d master
 
-$db = Get-DbaDatabase -SqlInstance $source_instance_name,$target_instance_name -Database master
-$db.Query($sql_session)
+# Set password for scripts
+
+$password = "replayuser" | ConvertTo-SecureString -AsPlainText -Force
+[pscredential]$cred = New-Object System.Management.Automation.PSCredential -ArgumentList "replayuser",$password
