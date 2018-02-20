@@ -25,5 +25,5 @@ $cred = Get-Credential replayuser
 $response = New-DbaXESmartReplay -SqlInstance localhost\sql2016 -SqlCredential $cred
 Start-DbaXESmartTarget -SqlInstance localhost\sql2017 -Session 'WorkloadReplay' -Responder $response
 
-# Start Workload
+# Start Workload (uses Watch-DbaXESession)
 Start-Process -FilePath powershell -ArgumentList C:\github\xevents-demo\start-workload.ps1
