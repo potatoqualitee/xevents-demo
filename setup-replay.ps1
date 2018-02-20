@@ -53,7 +53,7 @@ BEGIN
 	DROP LOGIN replayuser;
 END
 
-CREATE LOGIN replayuser WITH PASSWORD = 'replayuser', CHECK_POLICY = OFF;
+CREATE LOGIN replayuser WITH PASSWORD = 'replaypassword', CHECK_POLICY = OFF;
 "
 
 

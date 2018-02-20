@@ -18,7 +18,7 @@ Start-DbaXESession -SqlInstance localhost\sql2017 -Session 'WorkloadReplay'
 Start-Process -FilePath powershell -ArgumentList C:\github\xevents-demo\display-workload.ps1 
 
 # Setup your credential
-"replayuser" | clip
+"replaypassword" | clip
 $cred = Get-Credential replayuser
 
 # Setup your response
