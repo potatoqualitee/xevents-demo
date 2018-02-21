@@ -44,7 +44,7 @@ SET column1 = 0
 ROLLBACK
 "
 $dbs = @()
- 1..4 | ForEach-Object {
+ 1..5 | ForEach-Object {
      $dbs += "tempdb"
  }
 
