@@ -1,10 +1,7 @@
 Write-Host -Foreground Green "Starting up deadlock scripts"
 Write-Host -Foreground Green "Gimme about 5 seconds to load up some parallel processes"
-Import-Module C:\temp\new\dbatools\dbatools.psm1
-$modulepath = Get-Item -Path (Get-Module dbatools).Path
 
-. "$($modulepath.DirectoryName)\internal\functions\Invoke-parallel.ps1"
-
+. C:\github\xevents-demo\invoke-parallel.ps1
 
 $sql = "
 IF OBJECT_ID('tempdb..table1') IS NULL
@@ -50,12 +47,12 @@ ROLLBACK
 "
 $dbs = @()
  1..3 | ForEach-Object {
-     $dbs += Get-DbaDatabase -SqlInstance localhost\sql2017 -Database tempdb
+     $dbs += "tempdb"
  }
 
-$dbs | Invoke-Parallel -ImportVariables -ImportModules -ScriptBlock {
+$dbs | Invoke-Parallel -ImportVariables -ScriptBlock {
     try {
-        $psitem.Query($sql)
+        sqlcmd -S localhost\sql2017 -Q $sql -d $psitem
     }
     catch {
         Write-Output "Potential deadlock detected"
