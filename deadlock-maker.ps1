@@ -1,8 +1,6 @@
 Write-Host -Foreground Green "Starting up deadlock scripts"
 Write-Host -Foreground Green "Gimme about 5 seconds to load up some parallel processes"
 
-. C:\github\xevents-demo\invoke-parallel.ps1
-
 $sql = "
 IF OBJECT_ID('tempdb..table1') IS NULL
 BEGIN
@@ -46,9 +44,12 @@ SET column1 = 0
 ROLLBACK
 "
 $dbs = @()
- 1..3 | ForEach-Object {
+ 1..4 | ForEach-Object {
      $dbs += "tempdb"
  }
+
+ # Import parallel maker
+ . .\invoke-parallel.ps1
 
 $dbs | Invoke-Parallel -ImportVariables -ScriptBlock {
     try {
