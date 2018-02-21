@@ -1,4 +1,6 @@
 ﻿# As an added bonus, you can even get email notifications
+
+# Make sure the session is started
 Start-DbaXESession -SqlInstance localhost\sql2017 -Session 'Deadlock Graphs'
 
 # Use a PowerShell splat
