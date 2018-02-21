@@ -1,5 +1,5 @@
 Write-Host -Foreground Green "Starting up deadlock scripts"
-Write-Host -Foreground Green "Gimme about 5 seconds to load up some parallel processes"
+Write-Host -Foreground Green "Gimme a few seconds to load up some parallel processes"
 
 $sql = "
 IF OBJECT_ID('tempdb..table1') IS NULL
@@ -52,12 +52,7 @@ $dbs = @()
  . .\invoke-parallel.ps1
 
 $dbs | Invoke-Parallel -ImportVariables -ScriptBlock {
-    try {
-        sqlcmd -S localhost\sql2017 -Q $sql -d $psitem
-    }
-    catch {
-        Write-Output "Potential deadlock detected"
-    }
+   sqlcmd -S localhost\sql2017 -Q $sql -d $psitem
 }
 
 Read-Host -Prompt "Press enter to close"
