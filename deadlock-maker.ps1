@@ -54,5 +54,3 @@ $dbs = @()
 $dbs | Invoke-Parallel -ImportVariables -ScriptBlock {
    sqlcmd -S localhost\sql2017 -Q $sql -d $psitem
 }
-
-Read-Host -Prompt "Press enter to close"

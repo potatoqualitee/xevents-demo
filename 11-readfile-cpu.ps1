@@ -8,5 +8,3 @@ Get-DbaXESession -SqlInstance localhost\sql2017 -Session 'Deadlock Graphs' | Rea
 # Or, again, you can read locally and export to remote table
 Get-DbaXESession -SqlInstance localhost\sql2017 -Session 'Deadlock Graphs' | Read-DbaXEFile |
 Write-DbaDataTable -SqlInstance localhost\sql2016 -Table tempdb.dbo.profiler -AutoCreateTable
-
-# Or use New-DbaXESmartTableWriter
