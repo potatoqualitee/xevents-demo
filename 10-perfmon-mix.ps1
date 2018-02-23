@@ -12,7 +12,7 @@ Invoke-Item c:\temp\sample.csv
 
 
 # Or convert to CSV right from the XESession
-Get-DbaXESession -SqlInstance localhost\sql2017 -Session 'Deadlock Graphs' | Where TargetFile | Export-DbaXECsv -Path C:\temp\deadlock
+Get-DbaXESession -SqlInstance localhost\sql2017 -Session 'Deadlock Graphs' | Export-DbaXECsv -Path C:\temp\deadlock
 Invoke-Item C:\temp\deadlock
 
 
